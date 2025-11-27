@@ -1,0 +1,437 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Spontryx - Marketing & Branding Packages</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            background: linear-gradient(135deg, #0a0a0a 0%, #1a1a2e 100%);
+            color: #fff;
+            padding: 40px 20px;
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .header {
+            text-align: center;
+            margin-bottom: 60px;
+            animation: fadeInDown 0.8s ease;
+        }
+
+        .logo-container {
+            margin-bottom: 30px;
+        }
+
+        .logo {
+            width: 120px;
+            height: 120px;
+            margin: 0 auto;
+            background: linear-gradient(135deg, #00d4ff 0%, #00a8cc 100%);
+            border-radius: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 20px 60px rgba(0, 212, 255, 0.3);
+            position: relative;
+        }
+
+        .logo::before {
+            content: 'S';
+            font-size: 60px;
+            font-weight: 900;
+            color: #fff;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+
+        h1 {
+            font-size: 48px;
+            font-weight: 900;
+            margin-bottom: 15px;
+            background: linear-gradient(135deg, #00d4ff, #fff);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .tagline {
+            font-size: 18px;
+            color: #a0a0a0;
+            max-width: 700px;
+            margin: 0 auto 30px;
+        }
+
+        .about {
+            background: rgba(255, 255, 255, 0.05);
+            padding: 30px;
+            border-radius: 15px;
+            border: 1px solid rgba(0, 212, 255, 0.2);
+            margin-bottom: 60px;
+            backdrop-filter: blur(10px);
+        }
+
+        .about p {
+            color: #d0d0d0;
+            font-size: 16px;
+            line-height: 1.8;
+        }
+
+        .packages-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+            margin-bottom: 60px;
+        }
+
+        .package-card {
+            background: linear-gradient(145deg, #1a1a2e, #16213e);
+            border-radius: 20px;
+            padding: 35px;
+            border: 2px solid rgba(0, 212, 255, 0.2);
+            transition: all 0.4s ease;
+            position: relative;
+            overflow: hidden;
+            animation: fadeInUp 0.8s ease;
+        }
+
+        .package-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 5px;
+            background: linear-gradient(90deg, #00d4ff, #00a8cc);
+        }
+
+        .package-card:hover {
+            transform: translateY(-10px);
+            border-color: #00d4ff;
+            box-shadow: 0 20px 60px rgba(0, 212, 255, 0.3);
+        }
+
+        .package-name {
+            font-size: 24px;
+            font-weight: 800;
+            margin-bottom: 10px;
+            color: #00d4ff;
+        }
+
+        .package-price {
+            font-size: 36px;
+            font-weight: 900;
+            color: #fff;
+            margin-bottom: 15px;
+        }
+
+        .package-desc {
+            color: #a0a0a0;
+            margin-bottom: 25px;
+            font-size: 14px;
+            font-style: italic;
+        }
+
+        .deliverables h4,
+        .additional h4 {
+            font-size: 14px;
+            color: #00d4ff;
+            margin-bottom: 15px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            font-weight: 700;
+        }
+
+        .deliverables ul,
+        .additional ul {
+            list-style: none;
+            margin-bottom: 20px;
+        }
+
+        .deliverables li,
+        .additional li {
+            padding: 8px 0;
+            padding-left: 25px;
+            position: relative;
+            font-size: 14px;
+            color: #d0d0d0;
+        }
+
+        .deliverables li::before {
+            content: '📦';
+            position: absolute;
+            left: 0;
+        }
+
+        .additional li::before {
+            content: '✨';
+            position: absolute;
+            left: 0;
+        }
+
+        .add-ons {
+            background: linear-gradient(145deg, #16213e, #1a1a2e);
+            border-radius: 20px;
+            padding: 40px;
+            border: 2px solid rgba(0, 212, 255, 0.2);
+            margin-bottom: 40px;
+        }
+
+        .add-ons h3 {
+            font-size: 28px;
+            color: #00d4ff;
+            margin-bottom: 25px;
+            text-align: center;
+        }
+
+        .add-ons-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 15px;
+        }
+
+        .add-on-item {
+            background: rgba(0, 212, 255, 0.1);
+            padding: 15px 20px;
+            border-radius: 10px;
+            border: 1px solid rgba(0, 212, 255, 0.3);
+            font-size: 14px;
+            color: #d0d0d0;
+            transition: all 0.3s ease;
+        }
+
+        .add-on-item:hover {
+            background: rgba(0, 212, 255, 0.2);
+            transform: translateX(5px);
+        }
+
+        .cta {
+            text-align: center;
+            padding: 40px;
+            background: linear-gradient(135deg, #00d4ff, #00a8cc);
+            border-radius: 20px;
+            margin-top: 40px;
+        }
+
+        .cta h3 {
+            font-size: 32px;
+            margin-bottom: 15px;
+            color: #fff;
+        }
+
+        .cta p {
+            font-size: 16px;
+            margin-bottom: 25px;
+            color: rgba(255,255,255,0.9);
+        }
+
+        .cta-button {
+            display: inline-block;
+            padding: 15px 40px;
+            background: #fff;
+            color: #00a8cc;
+            font-weight: 700;
+            border-radius: 50px;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            font-size: 18px;
+        }
+
+        .cta-button:hover {
+            transform: scale(1.05);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+        }
+
+        @keyframes fadeInDown {
+            from {
+                opacity: 0;
+                transform: translateY(-30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @media (max-width: 768px) {
+            h1 { font-size: 36px; }
+            .package-name { font-size: 20px; }
+            .package-price { font-size: 28px; }
+            .packages-grid { grid-template-columns: 1fr; }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <div class="logo-container">
+                <div class="logo"></div>
+            </div>
+            <h1>SPONTRYX</h1>
+            <p class="tagline">Full-Stack Marketing & Branding Agency</p>
+        </div>
+
+        <div class="about">
+            <p>Spontryx is a full-stack marketing and branding agency helping businesses grow through strategic content, strong branding, and data-driven execution. We build powerful digital identities, produce high-impact videos and visuals, and manage complete online presence for brands that want real growth—not just followers. With Spontryx, businesses get consistent content, clear strategy, better reach, guaranteed leads, and a dedicated partner focused on scaling their brand.</p>
+        </div>
+
+        <div class="packages-grid">
+            <div class="package-card">
+                <div class="package-name">Starter Growth Pack</div>
+                <div class="package-price">₹9,999</div>
+                <p class="package-desc">For small businesses testing digital marketing for the first time</p>
+                
+                <div class="deliverables">
+                    <h4>Core Deliverables</h4>
+                    <ul>
+                        <li>4 Long-Form Videos</li>
+                        <li>8 Short Reels / Shorts</li>
+                        <li>8–10 Creative Posters</li>
+                        <li>5 Guaranteed Leads</li>
+                    </ul>
+                </div>
+
+                <div class="additional">
+                    <h4>Additional Services</h4>
+                    <ul>
+                        <li>Basic strategy session (30 mins)</li>
+                        <li>Caption writing + Hashtags</li>
+                        <li>Basic branding refinement</li>
+                        <li>Page optimization</li>
+                        <li>Monthly performance report</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="package-card">
+                <div class="package-name">Business Boost Pack</div>
+                <div class="package-price">₹19,999</div>
+                <p class="package-desc">For businesses that want consistent content + steady growth</p>
+                
+                <div class="deliverables">
+                    <h4>Core Deliverables</h4>
+                    <ul>
+                        <li>8 Long-Form Videos</li>
+                        <li>12 Short Reels / Shorts</li>
+                        <li>12 Posters / Graphics</li>
+                        <li>10–15 Guaranteed Leads</li>
+                    </ul>
+                </div>
+
+                <div class="additional">
+                    <h4>Additional Services</h4>
+                    <ul>
+                        <li>Monthly content calendar</li>
+                        <li>Brand storytelling scripts</li>
+                        <li>Audience targeting strategy</li>
+                        <li>Product/service highlight posts</li>
+                        <li>Community engagement (Basic)</li>
+                        <li>Weekly insights report</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="package-card">
+                <div class="package-name">Advanced Scaling Pack</div>
+                <div class="package-price">₹29,999</div>
+                <p class="package-desc">For brands ready for fast-paced content & higher inbound leads</p>
+                
+                <div class="deliverables">
+                    <h4>Core Deliverables</h4>
+                    <ul>
+                        <li>12 Long-Form Videos</li>
+                        <li>20 Short Reels / Shorts</li>
+                        <li>20 Posters / Graphics</li>
+                        <li>25 Guaranteed Leads</li>
+                    </ul>
+                </div>
+
+                <div class="additional">
+                    <h4>Additional Services</h4>
+                    <ul>
+                        <li>Full brand positioning strategy</li>
+                        <li>Offer structuring + funnel setup</li>
+                        <li>Competitor analysis</li>
+                        <li>High-conversion captions</li>
+                        <li>Ad-ready video edits</li>
+                        <li>Story content creation (8–10/month)</li>
+                        <li>Weekly growth tracking</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="package-card">
+                <div class="package-name">Premium Dominance Pack</div>
+                <div class="package-price">₹39,999</div>
+                <p class="package-desc">For brands that want aggressive growth & maximum visibility</p>
+                
+                <div class="deliverables">
+                    <h4>Core Deliverables</h4>
+                    <ul>
+                        <li>15 Long-Form Videos</li>
+                        <li>30 Short Reels / Shorts</li>
+                        <li>25 Posters / Graphics</li>
+                        <li>50 Guaranteed Leads</li>
+                    </ul>
+                </div>
+
+                <div class="additional">
+                    <h4>Additional Services</h4>
+                    <ul>
+                        <li>360° Social Media Management</li>
+                        <li>Performance marketing setup</li>
+                        <li>Full brand kit</li>
+                        <li>Content funnel creation</li>
+                        <li>Landing-page optimization</li>
+                        <li>24/7 Lead Handling Support</li>
+                        <li>Advanced analytics dashboard</li>
+                        <li>Monthly strategy call (60 mins)</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="add-ons">
+            <h3>🔥 Additional Services (Optional Add-Ons)</h3>
+            <div class="add-ons-grid">
+                <div class="add-on-item">Website design/redesign</div>
+                <div class="add-on-item">SEO setup</div>
+                <div class="add-on-item">Facebook + Instagram ads</div>
+                <div class="add-on-item">Google Ads setup</div>
+                <div class="add-on-item">WhatsApp automation</div>
+                <div class="add-on-item">CRM setup for leads</div>
+                <div class="add-on-item">Product/service shoot</div>
+                <div class="add-on-item">Influencer collaboration</div>
+                <div class="add-on-item">Complete brand kit</div>
+            </div>
+        </div>
+
+        <div class="cta">
+            <h3>Ready to Scale Your Brand?</h3>
+            <p>Let's turn your business into a strong, memorable, and profitable brand</p>
+            <a href="#" class="cta-button">Get Started Today</a>
+        </div>
+    </div>
+</body>
+</html>
